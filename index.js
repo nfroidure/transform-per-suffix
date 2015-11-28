@@ -8,7 +8,7 @@ module.exports = transformPerSuffixes;
 /**
  * Transform every properties of an object according to given suffixes.
  * @param {Array} suffixes An array of suffix definitions ({value: String, transform: Function})
- * @return {Object|Array} val The source Object/Array
+ * @param {Object|Array} val The source Object/Array
  * @return {Object|Array} The modified object
  * @example
  * var object = {
