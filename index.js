@@ -16,13 +16,15 @@ module.exports = transformPerSuffixes;
  *   creation_date: '2015-11-28T16:22:47.552Z',
  *   value: 'Hey!'
  * };
- * console.log(transformPerSuffixes([{
+ * var suffixes = [{
  *   value: '_id',
  *   transform: castToObjectId,
  * }, {
  *   value: '_date',
  *   transform: function(d) { return new Date(d) },
- * }]));
+ * }];
+ *
+ * console.log(transformPerSuffixes(suffixes, object));
  * // Prints:
  * // {
  * //   _id: ObjectId('abbacacaabbacacaabbacaca'),
