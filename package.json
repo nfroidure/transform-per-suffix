@@ -1,0 +1,36 @@
+{
+  "name": "transform-per-suffixes",
+  "version": "0.0.0",
+  "description": "Map object properties according to suffixes.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha index.mocha.js",
+    "cli": "env NPM_RUN_CLI=1",
+    "lint": "eslint index.js index.mocha.js",
+    "preversion": "npm run lint && npm test",
+    "doc": "cat index.js | jsdoc2md > API.md",
+    "coveralls": "istanbul cover _mocha --report lcovonly -- index.mocha.js -R spec -t 5000 && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
+    "cover": "istanbul cover --report html _mocha -- index.mocha.js -R spec -t 5000"
+  },
+  "keywords": [
+    "map",
+    "object",
+    "suffix",
+    "array"
+  ],
+  "author": "Nicolas Froidure",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nfroidure/transform-per-suffixes.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "coveralls": "^2.11.4",
+    "eslint": "^1.9.0",
+    "eslint-config-simplifield": "^1.1.0",
+    "istanbul": "^0.4.1",
+    "jsdoc-to-markdown": "^1.2.1",
+    "mocha": "^2.3.4",
+    "mocha-lcov-reporter": "^1.0.0"
+  }
+}
