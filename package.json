@@ -1,6 +1,6 @@
 {
   "name": "transform-per-suffixes",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Map object properties according to suffixes.",
   "main": "index.js",
   "scripts": {
