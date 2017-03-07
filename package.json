@@ -4,13 +4,15 @@
   "description": "Map object properties according to suffixes.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha index.mocha.js",
-    "cli": "env NPM_RUN_CLI=1",
-    "lint": "eslint index.js index.mocha.js",
-    "preversion": "npm run lint && npm test",
-    "doc": "cat index.js | jsdoc2md > API.md",
+    "cli": "env NODE_ENV=${NODE_ENV:-cli}",
+    "cover": "istanbul cover --report html _mocha -- index.mocha.js -R spec -t 5000",
     "coveralls": "istanbul cover _mocha --report lcovonly -- index.mocha.js -R spec -t 5000 && cat ./coverage/lcov.info | coveralls && rm -rf ./coverage",
-    "cover": "istanbul cover --report html _mocha -- index.mocha.js -R spec -t 5000"
+    "doc": "cat index.js | jsdoc2md > API.md",
+    "lint": "eslint index.js index.mocha.js",
+    "metapak": "metapak || echo 'Please `npm install --save-dev metapak`' && exit 0",
+    "postinstall": "npm run metapak",
+    "preversion": "npm t && npm run lint",
+    "test": "mocha index.mocha.js"
   },
   "keywords": [
     "map",
@@ -25,12 +27,20 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "coveralls": "^2.11.4",
-    "eslint": "^1.9.0",
-    "eslint-config-simplifield": "^1.1.0",
-    "istanbul": "^0.4.1",
+    "coveralls": "2.11.15",
+    "eslint": "3.4.0",
+    "eslint-config-simplifield": "4.1.1",
+    "istanbul": "0.4.5",
     "jsdoc-to-markdown": "^1.2.1",
-    "mocha": "^2.3.4",
-    "mocha-lcov-reporter": "^1.0.0"
+    "metapak": "0.0.15",
+    "metapak-nfroidure": "0.0.10",
+    "mocha": "3.2.0",
+    "mocha-lcov-reporter": "1.2.0"
+  },
+  "engines": {
+    "node": ">=6.9.5"
+  },
+  "dependencies": {
+    "debug": "1.0.0"
   }
 }
