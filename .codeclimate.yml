@@ -7,4 +7,4 @@ engines:
 
 ratings:
    paths:
-   - "**.js"
+   - "index.js index.mocha.js"
