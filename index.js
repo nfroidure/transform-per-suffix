@@ -46,6 +46,7 @@ function transformPerSuffixes(suffixes, val) {
           val[key] = suffix.transform(val[key]);
           return true;
         }
+        return false;
       })) {
         return;
       }
