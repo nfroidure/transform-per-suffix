@@ -5,6 +5,18 @@
  */
 module.exports = transformPerSuffixes;
 
+/* Architecture Note #1: Transform per suffixes
+
+The idea is to recursively traverse a JavaScript object
+ tree in order to find some suffixes and apply transformations
+ to it.
+
+We choose to use a functionnal signature but for performance
+ reasons, we mutate the given object in place. This is then
+ your responsibility to ensure that those side effects won't
+ mess your app.
+*/
+
 /**
  * Transform every properties of an object according to given suffixes.
  * @param {Array} suffixes An array of suffix definitions ({value: String, transform: Function})
@@ -40,6 +52,12 @@ function transformPerSuffixes(suffixes, val) {
   if('object' === typeof val && null !== val) {
     Object.keys(val).forEach(function(key) {
       if(suffixes.some(function(suffix) {
+        /* Architecture Note #1.1: Performance tip
+
+        To avoid unecessary string comparison, we
+        just skip it when the key is shorter than
+        the suffix.
+        */
         if(key.length >= suffix.value.length &&
           key.indexOf(suffix.value) === key.length - suffix.value.length
         ) {
