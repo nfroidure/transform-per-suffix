@@ -46,26 +46,29 @@ We choose to use a functionnal signature but for performance
  */
 
 function transformPerSuffixes(suffixes, val) {
-  if(val instanceof Array) {
+  if (val instanceof Array) {
     return val.map(transformPerSuffixes.bind(null, suffixes));
   }
-  if('object' === typeof val && null !== val) {
+  if ('object' === typeof val && null !== val) {
     Object.keys(val).forEach(function(key) {
-      if(suffixes.some(function(suffix) {
-        /* Architecture Note #1.1: Performance tip
+      if (
+        suffixes.some(function(suffix) {
+          /* Architecture Note #1.1: Performance tip
 
         To avoid unecessary string comparison, we
         just skip it when the key is shorter than
         the suffix.
         */
-        if(key.length >= suffix.value.length &&
-          key.indexOf(suffix.value) === key.length - suffix.value.length
-        ) {
-          val[key] = suffix.transform(val[key]);
-          return true;
-        }
-        return false;
-      })) {
+          if (
+            key.length >= suffix.value.length &&
+            key.indexOf(suffix.value) === key.length - suffix.value.length
+          ) {
+            val[key] = suffix.transform(val[key]);
+            return true;
+          }
+          return false;
+        })
+      ) {
         return;
       }
       val[key] = transformPerSuffixes(suffixes, val[key]);

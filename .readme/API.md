@@ -4,16 +4,16 @@
 ## transform-per-suffixes
 <a name="module_transform-per-suffixes..transformPerSuffixes"></a>
 
-### transform-per-suffixes~transformPerSuffixes(suffixes, val) ⇒ <code>Object</code> &#124; <code>Array</code>
+### transform-per-suffixes~transformPerSuffixes(suffixes, val) ⇒ <code>Object</code> \| <code>Array</code>
 Transform every properties of an object according to given suffixes.
 
-**Kind**: inner method of <code>[transform-per-suffixes](#module_transform-per-suffixes)</code>  
-**Returns**: <code>Object</code> &#124; <code>Array</code> - The modified object  
+**Kind**: inner method of [<code>transform-per-suffixes</code>](#module_transform-per-suffixes)  
+**Returns**: <code>Object</code> \| <code>Array</code> - The modified object  
 
 | Param | Type | Description |
 | --- | --- | --- |
 | suffixes | <code>Array</code> | An array of suffix definitions ({value: String, transform: Function}) |
-| val | <code>Object</code> &#124; <code>Array</code> | The source Object/Array |
+| val | <code>Object</code> \| <code>Array</code> | The source Object/Array |
 
 **Example**  
 ```js

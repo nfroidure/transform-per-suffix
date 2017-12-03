@@ -28,5 +28,5 @@ To avoid unecessary string comparison, we
         just skip it when the key is shorter than
         the suffix.
 
-[See in context](./index.js#L55-L60)
+[See in context](./index.js#L56-L61)
 
