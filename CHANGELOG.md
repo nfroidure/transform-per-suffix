@@ -1,3 +1,8 @@
+<a name="1.0.1"></a>
+## [1.0.1](https://github.com/nfroidure/transform-per-suffixes/compare/v1.0.0...v1.0.1) (2017-12-03)
+
+
+
 
 ### v1.0.0 (2015/11/28 17:03 +00:00)
 - [3ff0f07](https://github.com/nfroidure/transform-per-suffixes/commit/3ff0f07776922c52da3335cc40f0d8fc17402e49) 1.0.0 (@nfroidure)
